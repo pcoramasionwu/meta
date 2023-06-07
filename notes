@@ -1,0 +1,22 @@
+
+
+# clone the project
+git clone https://github.com/meta-toolkit/meta.git
+cd meta/
+
+# set up submodules
+git submodule update --init --recursive
+
+# set up a build directory
+mkdir build
+cd build
+cp ../config.toml .
+
+#install icu
+brew install icu4c
+
+# note the icu4c version
+
+# configure and build the project
+CXX=clang++ cmake ../ -DCMAKE_BUILD_TYPE=Release -DICU_ROOT=/opt/homebrew/Cellar/icu4c/72.1
+make

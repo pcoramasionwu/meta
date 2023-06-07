@@ -1,5 +1,14 @@
 cmake_minimum_required(VERSION 3.2.0)
+cmake_policy(SET CMP0074 NEW)
 project(meta)
+
+set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR})
+find_package(ICU 72.1 REQUIRED)
+
+include_directories(
+    ${ICU_INCLUDE_DIRS}
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
 
 option(ENABLE_LIBCXX "Use libc++ for the C++ standard library (only for clang)" ON)
 option(ENABLE_PROFILING "Link against gperftools profiler library" OFF)
@@ -51,12 +60,6 @@ endif()
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/deps/findicu)
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/deps/meta-cmake/)
-
-FindOrBuildICU(
-  VERSION 58.2
-  URL http://download.icu-project.org/files/icu4c/58.2/icu4c-58_2-src.tgz
-  URL_HASH MD5=fac212b32b7ec7ab007a12dff1f3aea1
-)
 
 add_library(meta-definitions INTERFACE)
 target_include_directories(meta-definitions INTERFACE

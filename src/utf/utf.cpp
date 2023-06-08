@@ -26,7 +26,7 @@ void utf8_append_codepoint(std::string& dest, int32_t codepoint)
 {
     std::array<uint8_t, U8_MAX_LENGTH> buf;
     int32_t len = 0;
-    UBool err = FALSE;
+    UBool err = false;
     // ICU has some conversions within this macro, which we can't control
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wconversion"

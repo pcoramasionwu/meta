@@ -18,5 +18,5 @@ brew install icu4c
 # note the icu4c version
 
 # configure and build the project
-CXX=clang++ cmake ../ -DCMAKE_BUILD_TYPE=Release -DICU_ROOT=/opt/homebrew/Cellar/icu4c/72.1
+CXX=clang++ cmake ../ -DCMAKE_BUILD_TYPE=Release
 make

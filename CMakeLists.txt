@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.2.0)
 cmake_policy(SET CMP0074 NEW)
 project(meta)
 
+set(ICU_ROOT "/opt/homebrew/Cellar/icu4c/72.1" CACHE PATH "Path to ICU root directory")
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR})
 find_package(ICU 72.1 REQUIRED)
 
